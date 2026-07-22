@@ -2853,3 +2853,20 @@ transparent 60%
 transition:background .08s linear;
 
 }
+/*==================================
+      CONTACT FORM STATUS
+===================================*/
+
+#formMessage{
+
+margin-top:20px;
+
+font-weight:600;
+
+font-size:15px;
+
+text-align:center;
+
+color:#38bdf8;
+
+}
