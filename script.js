@@ -534,3 +534,62 @@ submitBtn.textContent="Send Message";
 });
 
 }
+/*==================================
+      WEB3FORMS AJAX
+===================================*/
+
+const contactForm=document.getElementById("contactForm");
+
+if(contactForm){
+
+contactForm.addEventListener("submit",async(e)=>{
+
+e.preventDefault();
+
+const submitBtn=document.getElementById("submitBtn");
+
+const message=document.getElementById("formMessage");
+
+submitBtn.disabled=true;
+
+submitBtn.textContent="Sending...";
+
+const formData=new FormData(contactForm);
+
+try{
+
+const response=await fetch(contactForm.action,{
+
+method:"POST",
+
+body:formData
+
+});
+
+const result=await response.json();
+
+if(result.success){
+
+message.textContent="✅ Message sent successfully.";
+
+contactForm.reset();
+
+}else{
+
+message.textContent="❌ Failed to send message.";
+
+}
+
+}catch{
+
+message.textContent="⚠️ Network error. Please try again.";
+
+}
+
+submitBtn.disabled=false;
+
+submitBtn.textContent="Send Message";
+
+});
+
+}
